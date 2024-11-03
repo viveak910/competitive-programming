@@ -35,16 +35,31 @@ void fastIO() {
 int main() {
     fastIO();
 
-    int t = 1;
-    cin >> t; // Uncomment if multiple test cases
-    while (t--) {
+   int t =1;
+   cin>>t;
 
-        int a ,b,c;
-        cin>>a>>b>>c;
-        string firstPart = "1" + string(a - 1, '0');
-        string secondPart = string(b - c + 1, '1') + string(c - 1, '0');
-        cout << firstPart << " " << secondPart << endl;
+    while (t--) {
+        int n , k ; 
+        unordered_map<int,vector<int>>m ; 
+        unordered_map<int,int>freq ;
+        for(int i =0 ; i< k ; i++){
+            int x ; 
+            cin>>x ;
+            int y ; 
+            cin>>y;  
+            m[x].pb(y) ; 
+            freq[x]++ ; 
+
+        }
+        for(auto x : m){
+            sort(x.se.begin(),x.se.end()) ; 
+        }
         
+        
+        for(auto x:m){
+
+        }
+
     }
 
     return 0;
