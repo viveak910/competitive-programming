@@ -29,37 +29,34 @@ void fastIO() {
     cout.tie(0);
 }
 
-// Debugging (comment out in production)
-#define dbg(x) cerr << #x << " = " << (x) << endl;
-
 int main() {
     fastIO();
 
-   int t =1;
-   cin>>t;
+    int t = 1;
+    cin >> t;
 
     while (t--) {
-        int n , k ; 
-        unordered_map<int,vector<int>>m ; 
-        unordered_map<int,int>freq ;
-        for(int i =0 ; i< k ; i++){
-            int x ; 
-            cin>>x ;
-            int y ; 
-            cin>>y;  
-            m[x].pb(y) ; 
-            freq[x]++ ; 
-
-        }
-        for(auto x : m){
-            sort(x.se.begin(),x.se.end()) ; 
-        }
-        
-        
-        for(auto x:m){
-
+        int n, k;
+        cin >> n >> k;
+        unordered_map<int, vector<int>> m;
+        for (int i = 0; i < k; i++) {
+            int x, y;
+            cin >> x >> y;
+            m[x].pb(y);
         }
 
+        vector<int> v;
+        for (auto &x : m) {
+            v.pb(accumulate(x.se.begin(), x.se.end(), 0));
+        }
+    
+        sort(v.begin(), v.end(), greater<int>());
+
+        int sum = 0;
+        for (int i = 0; i < min(n, (int)v.size()); i++) {
+            sum += v[i];
+        }
+        cout << sum << endl;
     }
 
     return 0;
